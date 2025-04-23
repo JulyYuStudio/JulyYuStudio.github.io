@@ -3,18 +3,48 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
+          node-version: '20' # 使用适合的 Node.js 版本
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install Dependencies
+        run: pnpm install # 或 yarn install，根据你的偏好选择
+
+      - name: Generate Static Site
+        run: pnpm generate # 或者其他生成静态站点的命令，具体取决于你的 Nuxt.js 配置 # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: .output/public
+
+  # 部署工作
+  deploy:
+    environment: # 部署环境
+      name: github-pages # 部署到 GitHub Pages
+      url: ${{ steps.deployment.outputs.page_url }} # 部署后的 URL
+    needs: build # 郈接到构建工作
+    runs-on: ubuntu-latest # 运行环境
+    name: Deploy # 工作名称
+    steps: # 步骤
+      - name: Deploy to GitHub Pages # 部署到 GitHub Pages
+        id: deployment # 步骤 ID
+        uses: actions/deploy-pages@v4 # 使用的 action

@@ -12,7 +12,6 @@ import Portfolios from '../components/Portfolios.vue';
 
 <style scoped>
 .portfolio-container {
-
   min-height: 100vh;
   width: 100%;
   display: flex;

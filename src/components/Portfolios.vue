@@ -51,6 +51,7 @@ const projects = [
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  padding-bottom: 50px;
 }
 .portfolio-item {
   background: #fff;

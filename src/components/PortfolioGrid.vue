@@ -12,20 +12,24 @@ const openLink = (url) => {
   window.open(url, '_blank');
 };
 
+import webphone from '../assets/webphone.png';
+import weekly from '../assets/weekly.png';
+import appclock from '../assets/appclock.png';
+
 const projects = [
   {
     name: 'CloudPhone',
-    img: 'https://dummyimage.com/400x300/ededed/333333&text=Work+1',
+    img: webphone,
     url: 'https://studio.julyyu.cn/CloudPhone/'
   },
   {
     name: '余小余周刊',
-    img: 'https://dummyimage.com/400x300/ededed/333333&text=Work+2',
+    img: weekly,
     url: 'https://studio.julyyu.cn/Web_Weekly/'
   },
   {
     name: '桌面时钟',
-    img: 'https://dummyimage.com/400x300/ededed/333333&text=Work+3',
+    img: appclock,
     url: 'https://play.google.com/store/apps/details?id=com.july.yu.clock'
   },
 

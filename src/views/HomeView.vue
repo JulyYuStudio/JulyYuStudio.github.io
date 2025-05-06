@@ -1,18 +1,18 @@
 <template>
   <div class="portfolio-container">
-    <h1 class="portfolio-title">July Studio</h1>
+    <h1 class="portfolio-title">JulyYu Studio</h1>
     <div class="portfolio-subtitle">All Projects</div>
-    <PortfolioGrid/>
+    <Portfolios/>
   </div>
 </template>
 
 <script setup>
-import PortfolioGrid from '../components/PortfolioGrid.vue';
+import Portfolios from '../components/Portfolios.vue';
 </script>
 
 <style scoped>
 .portfolio-container {
-  background: #fff;
+
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -21,17 +21,17 @@ import PortfolioGrid from '../components/PortfolioGrid.vue';
 }
 .portfolio-title {
   font-size: 2.2rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   font-weight: bold;
-  margin-bottom: 8px;
-  color: #222;
+  margin-bottom: 10px;
+  color: #ffffff;
   text-align: center;
 }
 .portfolio-subtitle {
   font-size: 1.1rem;
-  letter-spacing: 0.18em;
-  color: #444;
-  margin-bottom: 48px;
+  letter-spacing: 0.1em;
+  color: #fcfcfc;
+  margin-bottom: 20px;
   text-align: center;
 }
 

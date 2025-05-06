@@ -23,13 +23,13 @@ import Portfolios from '../components/Portfolios.vue';
   letter-spacing: 0.1em;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #000;
   text-align: center;
 }
 .portfolio-subtitle {
   font-size: 1.1rem;
   letter-spacing: 0.1em;
-  color: #fcfcfc;
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
